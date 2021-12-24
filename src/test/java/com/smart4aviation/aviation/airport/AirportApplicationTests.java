@@ -1,4 +1,4 @@
-package com.smart4aviation.airport.airport;
+package com.smart4aviation.aviation.airport;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
