@@ -1,0 +1,37 @@
+[
+  {
+    "flightId": 0,
+    "flightNumber": 4229,
+    "departureAirportIATACode": "LAX",
+    "arrivalAirportIATACode": "MIT",
+    "departureDate": "2017-08-28T07:57:33-02:00"
+  },
+  {
+    "flightId": 1,
+    "flightNumber": 5116,
+    "departureAirportIATACode": "LAX",
+    "arrivalAirportIATACode": "GDN",
+    "departureDate": "2016-12-26T06:43:25-01:00"
+  },
+  {
+    "flightId": 2,
+    "flightNumber": 2861,
+    "departureAirportIATACode": "SEA",
+    "arrivalAirportIATACode": "MIT",
+    "departureDate": "2020-09-13T09:26:01-02:00"
+  },
+  {
+    "flightId": 3,
+    "flightNumber": 4716,
+    "departureAirportIATACode": "LAX",
+    "arrivalAirportIATACode": "PPX",
+    "departureDate": "2015-05-27T12:01:40-02:00"
+  },
+  {
+    "flightId": 4,
+    "flightNumber": 9594,
+    "departureAirportIATACode": "YYZ",
+    "arrivalAirportIATACode": "GDN",
+    "departureDate": "2014-08-18T02:25:57-02:00"
+  }
+]
