@@ -13,4 +13,19 @@ public class IATA {
     public String getCode() {
         return code;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        IATA iata = (IATA) o;
+
+        return code.equals(iata.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
 }
