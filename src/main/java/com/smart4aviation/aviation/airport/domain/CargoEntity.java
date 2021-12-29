@@ -7,13 +7,13 @@ import java.util.List;
 
 @Builder
 @ToString
-public class CargoFlight {
+public class CargoEntity {
 
     private final int flightId;
     private final List<Baggage> baggage;
     private final List<Cargo> cargo;
 
-    public CargoFlight(int flightId, List<Baggage> baggage, List<Cargo> cargo) {
+    public CargoEntity(int flightId, List<Baggage> baggage, List<Cargo> cargo) {
         this.flightId = flightId;
         this.baggage = baggage;
         this.cargo = cargo;
@@ -36,7 +36,7 @@ public class CargoFlight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CargoFlight that = (CargoFlight) o;
+        CargoEntity that = (CargoEntity) o;
 
         return flightId == that.flightId;
     }

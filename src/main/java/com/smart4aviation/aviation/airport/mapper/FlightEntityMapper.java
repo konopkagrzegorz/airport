@@ -1,10 +1,9 @@
 package com.smart4aviation.aviation.airport.mapper;
 
-import com.smart4aviation.aviation.airport.domain.Flight;
+import com.smart4aviation.aviation.airport.domain.FlightEntity;
 import com.smart4aviation.aviation.airport.domain.IATA;
 import com.smart4aviation.aviation.airport.json.FlightEntityJSON;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Component;
@@ -12,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FlightEntityMapper {
 
-    public Flight flightEntityJSONtoFlightMapper(FlightEntityJSON flight) {
-        return Flight.builder()
+    public FlightEntity flightEntityJSONtoFlightMapper(FlightEntityJSON flight) {
+        return FlightEntity.builder()
                 .flightId(flight.getFlightId())
                 .flightNumber(flight.getFlightNumber())
                 .departureAirportIATACode(new IATA(flight.getDepartureAirportIATACode()))

@@ -2,26 +2,26 @@ package com.smart4aviation.aviation.airport.repository;
 
 import com.smart4aviation.aviation.airport.domain.Baggage;
 import com.smart4aviation.aviation.airport.domain.Cargo;
-import com.smart4aviation.aviation.airport.domain.CargoFlight;
+import com.smart4aviation.aviation.airport.domain.CargoEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class LuggageRepository {
+public class CargoEntityRepository {
 
-    private final List<CargoFlight> cargoFlights = new ArrayList<>();
+    private final List<CargoEntity> cargoFlights = new ArrayList<>();
 
-    public void addCargoData(CargoFlight cargoFlight) {
-        this.cargoFlights.add(cargoFlight);
+    public void addCargoData(CargoEntity cargoEntity) {
+        this.cargoFlights.add(cargoEntity);
     }
 
-    public List<CargoFlight> getAll() {
+    public List<CargoEntity> getAll() {
         return this.cargoFlights;
     }
 
-    public CargoFlight findCargoFlight(int flightId) {
+    public CargoEntity findCargoFlight(int flightId) {
         return cargoFlights.stream().filter(cargoFlight -> cargoFlight.getFlightId() == flightId)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException(String.format("Entity with flight id: %d not found", flightId)));

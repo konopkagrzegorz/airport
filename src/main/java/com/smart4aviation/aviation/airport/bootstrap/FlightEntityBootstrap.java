@@ -3,7 +3,7 @@ import com.google.gson.reflect.TypeToken;
 import com.smart4aviation.aviation.airport.json.FlightEntityJSON;
 import com.smart4aviation.aviation.airport.json.JSONReader;
 import com.smart4aviation.aviation.airport.mapper.FlightEntityMapper;
-import com.smart4aviation.aviation.airport.repository.FlightRepository;
+import com.smart4aviation.aviation.airport.repository.FlightEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -17,12 +17,12 @@ public class FlightEntityBootstrap implements CommandLineRunner {
 
     private static final String FLIGHT_JSON_PATH = "/flight_entity.json";
 
-    private final FlightRepository flightRepository;
+    private final FlightEntityRepository flightRepository;
     private final FlightEntityMapper flightEntityMapper;
 
     @Autowired
-    public FlightEntityBootstrap(FlightRepository flightRepository, FlightEntityMapper flightEntityMapper) {
-        this.flightRepository = flightRepository;
+    public FlightEntityBootstrap(FlightEntityRepository flightEntityRepository, FlightEntityMapper flightEntityMapper) {
+        this.flightRepository = flightEntityRepository;
         this.flightEntityMapper = flightEntityMapper;
     }
 

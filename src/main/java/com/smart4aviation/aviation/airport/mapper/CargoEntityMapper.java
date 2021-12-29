@@ -2,12 +2,11 @@ package com.smart4aviation.aviation.airport.mapper;
 
 import com.smart4aviation.aviation.airport.domain.Baggage;
 import com.smart4aviation.aviation.airport.domain.Cargo;
-import com.smart4aviation.aviation.airport.domain.CargoFlight;
+import com.smart4aviation.aviation.airport.domain.CargoEntity;
 import com.smart4aviation.aviation.airport.domain.WeightUnit;
 import com.smart4aviation.aviation.airport.json.BaggageJSON;
 import com.smart4aviation.aviation.airport.json.CargoEntityJSON;
 import com.smart4aviation.aviation.airport.json.CargoJSON;
-import com.smart4aviation.aviation.airport.response.CargoWeight;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,8 +15,8 @@ import java.util.stream.Collectors;
 @Component
 public class CargoEntityMapper {
 
-    public CargoFlight cargoEntityJSONtoCargoFlightMapper(CargoEntityJSON cargoEntityJSON) {
-        return CargoFlight.builder()
+    public CargoEntity cargoEntityJSONtoCargoFlightMapper(CargoEntityJSON cargoEntityJSON) {
+        return CargoEntity.builder()
                 .flightId(cargoEntityJSON.getFlightId())
                 .baggage(baggageJSONListToBaggageListMapper(cargoEntityJSON.getBaggage()))
                 .cargo(cargoJSONListToCargoListMapper(cargoEntityJSON.getCargo()))

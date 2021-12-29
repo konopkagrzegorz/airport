@@ -4,12 +4,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
 import lombok.Builder;
 import org.joda.time.DateTime;
-import org.joda.time.LocalDateTime;
-import org.springframework.context.annotation.Bean;
 
 
 @Builder
-public class Flight {
+public class FlightEntity {
 
     private final int flightId;
     private final int flightNumber;
@@ -18,7 +16,7 @@ public class Flight {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private final DateTime departureDate;
 
-    public Flight(int flightId, int flightNumber, IATA departureAirportIATACode, IATA arrivalAirportIATACode, DateTime departureDate) {
+    public FlightEntity(int flightId, int flightNumber, IATA departureAirportIATACode, IATA arrivalAirportIATACode, DateTime departureDate) {
         this.flightId = flightId;
         this.flightNumber = flightNumber;
         this.departureAirportIATACode = departureAirportIATACode;
@@ -51,7 +49,7 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Flight flight = (Flight) o;
+        FlightEntity flight = (FlightEntity) o;
 
         if (flightId != flight.flightId) return false;
         if (flightNumber != flight.flightNumber) return false;

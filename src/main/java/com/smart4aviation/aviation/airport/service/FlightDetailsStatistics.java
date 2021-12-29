@@ -2,10 +2,10 @@ package com.smart4aviation.aviation.airport.service;
 
 import com.smart4aviation.aviation.airport.domain.Baggage;
 import com.smart4aviation.aviation.airport.domain.Cargo;
-import com.smart4aviation.aviation.airport.domain.CargoFlight;
-import com.smart4aviation.aviation.airport.domain.Flight;
-import com.smart4aviation.aviation.airport.repository.FlightRepository;
-import com.smart4aviation.aviation.airport.repository.LuggageRepository;
+import com.smart4aviation.aviation.airport.domain.CargoEntity;
+import com.smart4aviation.aviation.airport.domain.FlightEntity;
+import com.smart4aviation.aviation.airport.repository.FlightEntityRepository;
+import com.smart4aviation.aviation.airport.repository.CargoEntityRepository;
 import com.smart4aviation.aviation.airport.response.BaggageWeight;
 import com.smart4aviation.aviation.airport.response.CargoWeight;
 import com.smart4aviation.aviation.airport.response.FlightDetailData;
@@ -21,21 +21,21 @@ import java.util.Optional;
 @Service
 public class FlightDetailsStatistics {
 
-    private final FlightRepository flightRepository;
-    private final LuggageRepository luggageRepository;
+    private final FlightEntityRepository flightRepository;
+    private final CargoEntityRepository luggageRepository;
 
     @Autowired
-    public FlightDetailsStatistics(FlightRepository flightRepository, LuggageRepository luggageRepository) {
+    public FlightDetailsStatistics(FlightEntityRepository flightRepository, CargoEntityRepository cargoEntityRepository) {
         this.flightRepository = flightRepository;
-        this.luggageRepository = luggageRepository;
+        this.luggageRepository = cargoEntityRepository;
     }
 
     public Optional<FlightDetailData> getDetailsAboutFlight(int flightNumber, String date) {
         String pattern = "yyyy-MM-dd'T'HH:mm:ssZ";
         DateTimeFormatter formatter = DateTimeFormat.forPattern(pattern);
-        Flight flight = flightRepository.findFlightByFlightNumberAndDate(flightNumber,formatter.parseDateTime(date));
+        FlightEntity flight = flightRepository.findFlightByFlightNumberAndDate(flightNumber,formatter.parseDateTime(date));
         if (Objects.nonNull(flight)) {
-            CargoFlight cargoFlight = luggageRepository.findCargoFlight(flight.getFlightId());
+            CargoEntity cargoFlight = luggageRepository.findCargoFlight(flight.getFlightId());
             double weightInKG = 0;
             double weightInLB = 0;
             for (Baggage baggage : cargoFlight.getBaggage()) {
