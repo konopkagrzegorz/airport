@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FlightEntityMapper {
 
+    private static final String PATTERN = "yyyy-MM-dd'T'HH:mm:ssZ";
+
     public FlightEntity flightEntityJSONtoFlightMapper(FlightEntityJSON flight) {
         return FlightEntity.builder()
                 .flightId(flight.getFlightId())
@@ -21,8 +23,7 @@ public class FlightEntityMapper {
     }
 
     private DateTime dateTime(String dateText) {
-        String pattern = "yyyy-MM-dd'T'HH:mm:ssZ";
-        DateTimeFormatter formatter = DateTimeFormat.forPattern(pattern);
+        DateTimeFormatter formatter = DateTimeFormat.forPattern(PATTERN);
         return formatter.parseDateTime(dateText);
     }
 }

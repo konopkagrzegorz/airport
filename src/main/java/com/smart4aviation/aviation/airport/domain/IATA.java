@@ -28,4 +28,9 @@ public class IATA {
     public int hashCode() {
         return code.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return code;
+    }
 }
