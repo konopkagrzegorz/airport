@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @ToString
@@ -38,11 +39,16 @@ public class CargoEntity {
 
         CargoEntity that = (CargoEntity) o;
 
-        return flightId == that.flightId;
+        if (flightId != that.flightId) return false;
+        if (!Objects.equals(baggage, that.baggage)) return false;
+        return Objects.equals(cargo, that.cargo);
     }
 
     @Override
     public int hashCode() {
-        return flightId;
+        int result = flightId;
+        result = 31 * result + (baggage != null ? baggage.hashCode() : 0);
+        result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
+        return result;
     }
 }
